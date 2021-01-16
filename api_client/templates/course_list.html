@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Course List</h1>
+  {% if course_list %}
+  <ul>
+    {% for course in course_list %}
+      <li>
+        <a href="{% url 'client:course_detail' course.id %}">{{ course.title }}</a> <br>({{course.description}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no courses in the library.</p>
+  {% endif %}
+{% endblock %}
+

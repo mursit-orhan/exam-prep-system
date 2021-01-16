@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ quiz.title }}</h1>
+  <p>{{ quiz.description }}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Result Detail</h4>
+       <ul class="sidebar-nav">
+           <li>Total Question: {{ quiz.total }}</li>
+           <li>Wrong Answers: {{ quiz.wrong }}</li>
+           <li>Correct Answers: {{ quiz.correct }}</li>
+
+        </ul>
+
+  </div>
+{% endblock %}

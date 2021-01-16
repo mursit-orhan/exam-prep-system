@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Title: {{ quiz.title }}</h1>
+  <p><strong>Summary:</strong> {{ quiz.description }}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Questions</h4>
+  <form action="{% url 'client:submit_quiz' quiz.id %}" method="post">
+    {% csrf_token %}
+    {% for question in quiz.question_set %}
+    <hr>
+       <p><strong>{{ question.description }}</strong> </p>
+      {% for option in question.option_set %}
+      <input type="radio" name="question{{ question.id }}" id="option{{ option.id }}" value="{{ option.id }}">
+        <label for="option{{ forloop.counter }}">{{ option.description }}</label><br>
+      {% endfor %}
+    {% endfor %}
+    <input type="submit" value="Submit">
+  </form>
+  </div>
+{% endblock %}

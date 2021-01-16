@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if is_authenticated %}
+  <h1>Title: {{ chapter.title }}</h1>
+  <p><strong>Summary:</strong> {{ chapter.description }}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Quizzes</h4>
+
+    {% for quiz in chapter.quiz_set %}
+      <hr>
+      <p><strong><a href="{% url 'client:quiz_detail' quiz.id %}">{{ quiz.title }}</a></strong>({{ quiz.questions_count }}) </p>
+        <br>
+    {% endfor %}
+  </div>
+{%else%}
+<p>You have to login to system to see this page <a href="{% url 'client:login'%}?next{{request.path}}">Login</a> </p>
+{% endif %}
+{% endblock %}

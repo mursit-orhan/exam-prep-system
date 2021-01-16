@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Exam Preparation Application</h1>
+  <p>Welcome to EPA , a website developed to help you succeed in <em>University Entrance Exam</em>!</p>
+  <p>The EPA has the following record counts:</p>
+  <ul>
+    <li><strong>Courses:</strong> {{ num_courses }}</li>
+    <li><strong>Quizzes:</strong> {{ num_quizzes }}</li>
+    <li><strong>Questions:</strong> {{ num_questions }}</li>
+    <li><strong>Students:</strong> {{ num_students }}</li>
+  </ul>
+  <p> You have visited this page {{ num_visits}} time {% if num_visits > 1 %} s {% endif %}</p>
+{% endblock %}

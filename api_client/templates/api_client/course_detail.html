@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Title: {{ course.title }}</h1>
+  <p><strong>Summary:</strong> {{ course.description }}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Chapters</h4>
+
+    {% for chapter in course.chapter_set %}
+      <hr>
+      <p><strong><a href="{% url 'client:chapter_detail' chapter.id %}">{{ chapter.title }}</a></strong> </p>
+        <br>
+    {% endfor %}
+  </div>
+{% endblock %}

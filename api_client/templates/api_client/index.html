@@ -1,0 +1,9 @@
+{% if lecture_list %}
+    <ul>
+    {% for lecture in lecture_list %}
+        <li><a href="/api/{{ lecture.id }}/">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
